@@ -9,6 +9,8 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.Volley
+import com.example.noticiass.models.Article
+import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 
@@ -19,7 +21,7 @@ class Home : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
+9
         peticionNoticias()
     }
 
@@ -32,7 +34,11 @@ class Home : AppCompatActivity() {
 
                 response ->
                 try {
-                    Log.d(TAG, response.toString())
+                    listaArticulos.removeAll(listaArticulos)
+                    listaArticulos.addAll(procesarJSON(response))
+                    for (i in listaArticulos){
+                        Log.d(TAG, i.toString())
+                    }
 
                 }catch (e:JSONException){
                     e.printStackTrace()
@@ -42,4 +48,17 @@ class Home : AppCompatActivity() {
             )
         coladepeticiones.add(peticionJSON)
     }
+    fun procesaJSON(json:JSONObject):ArrayList<Article> {
+        val articles: JSONArray = json.getJSONArray(  "articles" )
+        val lisArticles = ArrayList<Article>()
+        for(i in articles){
+            val author = i.getString(  "author")
+            val title = i.getString(  "title")
+            val description = i.getString( "description")
+            val url = i.getString(  "url")
+            val urlImg = i.getString(  "urlToImage")
+            listArticles.add(Article(author, title, description, url, urlImg))
+        }return listArticles
+
+    }s
 }
