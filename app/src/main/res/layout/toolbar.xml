@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Light "
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+>
+<LinearLayout
+        android:orientation="vertical"
+        android:paddingBottom="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <TextView
+            android:id="@+id/txtTitulo"
+            android:text="@string/app_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+    />
+    <TextView
+            android:id="@+id/txtSubtitulo"
+            android:text="Leer tus Noticias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Widget.ActionBar.sunitle"
+    />
+
+</LinearLayout>
+</android.support.v7.widget.Toolbar>

@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Noticiass</string>
+    <string name="app_name">noticias</string>
+    <string name="compartir">Compartir</string>
+    <string name="ver_noticia">ver Noticia</string>
 </resources>
